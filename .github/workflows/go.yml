@@ -26,6 +26,7 @@ jobs:
 
     - name: Test
       run: go test -v ./...
+      
     - name: Notificar a Discord
       if: always()
       env:
