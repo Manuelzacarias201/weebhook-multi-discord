@@ -26,3 +26,11 @@ jobs:
 
     - name: Test
       run: go test -v ./...
+    - name: Notificar a Discord
+      if: always()
+      env:
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      run: |
+        STATUS="✅ Éxito"
+        if [ ${{ job.status }} != "success" ]; then STATUS="❌ Fallo"; fi
+        curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"GitHub Actions - Workflow en ${{ github.repository }}: $STATUS\"}" $DISCORD_WEBHOOK
