@@ -1,7 +1,7 @@
 package application
 
 import "fmt"
-
+//pull-02
 func GenerateMessageToDiscord(action, base, titulo, repoFullName, user, urlPullRequest string, merged bool) string {
 	var mensaje string
 
