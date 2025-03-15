@@ -28,7 +28,7 @@ func (r *PayloadRepository) FormatDiscordMessage(payload entities.PullRequestEve
 		"synchronize": 16776960, // Amarillo
 	}
 
-	// Determinar color basado en la acción
+	// Determinar color basado en la acción dependiendo
 	color, ok := colorMap[payload.Action]
 	if !ok {
 		color = 9807270 // Gris por defecto para acciones no mapeadas
